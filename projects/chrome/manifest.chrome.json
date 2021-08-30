@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "TODO_NAME",
+    "short_name": "TODO_SHORT_NAME",
+    "version": "1.0.0",
+    "description": "TODO_DESCRIPTION",
+    "icons": {
+        "16": "assets/icon.png",
+        "48": "assets/icon.png",
+        "128": "assets/icon.png"
+    },
+    "permissions": [],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "TODO_DEFAULT_TITLE"
+    },
+    "options_page": "options.html",
+    "content_scripts": [
+        {
+            "js": [
+                "/ng/polyfills.js",
+                "/ng/polyfill-webcomp-es5.js",
+                "/ng/polyfill-webcomp.js",
+                "/ng/main.js",
+                "content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    },
+    "background": {
+        "service_worker": "background.js"
+    }
+}
